@@ -1,1 +1,3 @@
-# Assignment-3-Foodie
+# foodie
+
+A new Flutter project.
