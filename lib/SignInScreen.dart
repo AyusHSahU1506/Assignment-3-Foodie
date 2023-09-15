@@ -11,208 +11,214 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              width: w,
-              height: h * .52,
-              color: Colors.red,
-              child: Image.asset(
-                "assets/images/Hey_foodie.png",
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Center(
-              child: Text(
-                "Order Delicious foods \n     to your doorstep",
-                style: TextStyle(fontSize: 27, fontWeight: FontWeight.w600),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Stack(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25),
-                  child: Divider(
-                    color: Colors.blueGrey,
-                  ),
+      body: LayoutBuilder(builder: (context, constraints) {
+        double w = constraints.maxWidth;
+        double h = constraints.maxHeight;
+
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: w,
+                height: h * .52,
+                color: Colors.red,
+                child: Image.asset(
+                  "assets/images/Hey_foodie.png",
+                  fit: BoxFit.cover,
                 ),
-                Positioned(
-                    bottom: .01,
-                    left: 132,
-                    child: Container(
-                        color: Colors.white,
-                        child: Text(
-                          " Log in or sign up ",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17,
-                              color: Colors.blueGrey.shade800),
-                        )))
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-              child: Row(
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Center(
+                child: Text(
+                  "Order Delicious foods \n     to your doorstep",
+                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.w600),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Stack(
                 children: [
-                  Container(
-                    width: w * .15,
-                    height: h * .055,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: Colors.blueGrey,
-                      ),
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25),
+                    child: Divider(
+                      color: Colors.blueGrey,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(11.0),
-                      child: Image.asset("assets/icons/india.png"),
+                  ),
+                  Positioned(
+                      bottom: .01,
+                      left: 132,
+                      child: Container(
+                          color: Colors.white,
+                          child: Text(
+                            " Log in or sign up ",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17,
+                                color: Colors.blueGrey.shade800),
+                          )))
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Row(
+                  children: [
+                    Container(
+                      width: w * .15,
+                      height: h * .055,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 1,
+                          color: Colors.blueGrey,
+                        ),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(11.0),
+                        child: Image.asset("assets/icons/india.png"),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      width: w * .69,
+                      height: h * .06,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 1,
+                          color: Colors.blueGrey,
+                        ),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: TextFormField(
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                          keyboardType: TextInputType.phone,
+                          cursorColor: Colors.red,
+                          decoration: const InputDecoration(
+                              prefixText: "+91 ",
+                              prefixStyle: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 18),
+                              border: InputBorder.none,
+                              hintText: 'Enter Phone Number'),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: w * .87,
+                height: 40,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      backgroundColor: const Color(0xfff43127),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const otpScreen()));
+                    },
+                    child: const Text(
+                      "Continue",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                    )),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Stack(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                    child: Divider(
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  Positioned(
+                      left: 181,
+                      bottom: 8,
+                      child: Container(
+                          color: Colors.white,
+                          child: Text(
+                            " Or ",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17,
+                                color: Colors.blueGrey.shade800),
+                          ))),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 110,
+                    height: 50,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(width: .5), shape: BoxShape.circle),
+                    padding: const EdgeInsets.all(6.0),
+                    child: const Icon(
+                      Icons.facebook,
+                      color: Colors.blue,
+                      size: 30,
                     ),
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 20,
                   ),
                   Container(
-                    width: w * .69,
-                    height: h * .06,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: Colors.blueGrey,
-                      ),
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: TextFormField(
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w500),
-                        keyboardType: TextInputType.phone,
-                        cursorColor: Colors.red,
-                        decoration: const InputDecoration(
-                            prefixText: "+91 ",
-                            prefixStyle: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 18),
-                            border: InputBorder.none,
-                            hintText: 'Enter Phone Number'),
-                      ),
+                        border: Border.all(width: .5), shape: BoxShape.circle),
+                    padding: const EdgeInsets.all(6.0),
+                    child: const Icon(
+                      Icons.mail_rounded,
+                      size: 30,
                     ),
                   ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(width: .5), shape: BoxShape.circle),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      "assets/images/google.png",
+                      height: 25,
+                    ),
+                  )
                 ],
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              width: w * .87,
-              height: 40,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    backgroundColor: const Color(0xfff43127),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const otpScreen()));
-                  },
-                  child: const Text(
-                    "Continue",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  )),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Stack(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                  child: Divider(
-                    color: Colors.blueGrey,
-                  ),
-                ),
-                Positioned(
-                    left: 181,
-                    bottom: 8,
-                    child: Container(
-                        color: Colors.white,
-                        child: Text(
-                          " Or ",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17,
-                              color: Colors.blueGrey.shade800),
-                        ))),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                const SizedBox(
-                  width: 110,
-                  height: 50,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(width: .5), shape: BoxShape.circle),
-                  padding: const EdgeInsets.all(6.0),
-                  child: const Icon(
-                    Icons.facebook,
-                    color: Colors.blue,
-                    size: 30,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(width: .5), shape: BoxShape.circle),
-                  padding: const EdgeInsets.all(6.0),
-                  child: const Icon(
-                    Icons.mail_rounded,
-                    size: 30,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(width: .5), shape: BoxShape.circle),
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    "assets/images/google.png",
-                    height: 25,
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
+              )
+            ],
+          ),
+        );
+      }),
     );
   }
 }

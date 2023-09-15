@@ -24,59 +24,101 @@ class _OTPPageState extends State<otpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          leading: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.black,
+          ),
           title: const Text(
             'OTP Verification',
             style: TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          const Text(
-            "We have sent a verification code to",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: OTPTextField(
-              fieldStyle: FieldStyle.box,
-              otpFieldStyle: OtpFieldStyle(
-                focusBorderColor: Colors.black,
-                enabledBorderColor: Colors.black,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          double w = constraints.maxWidth;
+          double h = constraints.maxHeight;
+          return Column(
+            children: [
+              SizedBox(
+                height: h * .05,
               ),
-              // isDense: true,
-              inputFormatter: [FilteringTextInputFormatter.digitsOnly],
-              length: 6,
-              width: MediaQuery.of(context).size.width,
-              fieldWidth: 50,
-              style: const TextStyle(
-                fontSize: 20,
+              const Text(
+                "We have sent a verification code to",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-              textFieldAlignment: MainAxisAlignment.spaceAround,
-              onChanged: (value) {
-                if (value.isEmpty) {
-                  FocusScope.of(context).requestFocus(firstDigitFocusNode);
-                } else if (value.isEmpty) {
-                  FocusScope.of(context).requestFocus(thirdDigitFocusNode);
-                }
-              },
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xfff43127),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+              const SizedBox(
+                height: 10,
               ),
-            ),
-            child: const Text(
-              "VERIFY & ENTER",
-            ),
-          ),
-        ],
+              const Text(
+                "+91-XXXXXX5432",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: OTPTextField(
+                  fieldStyle: FieldStyle.box,
+                  otpFieldStyle: OtpFieldStyle(
+                    focusBorderColor: Colors.black,
+                    enabledBorderColor: Colors.black,
+                  ),
+                  inputFormatter: [FilteringTextInputFormatter.digitsOnly],
+                  length: 6,
+                  width: w,
+                  fieldWidth: 50,
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
+                  textFieldAlignment: MainAxisAlignment.spaceAround,
+                  onChanged: (value) {
+                    if (value.isEmpty) {
+                      FocusScope.of(context).requestFocus(firstDigitFocusNode);
+                    } else if (value.isEmpty) {
+                      FocusScope.of(context).requestFocus(thirdDigitFocusNode);
+                    }
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              RichText(
+                text: TextSpan(
+                  text: "Didn't get the OTP? ",
+                  style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: 'Resend SMS',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: Colors.blueGrey.shade400)),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xfff43127),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                child: const Text(
+                  "VERIFY & ENTER",
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
