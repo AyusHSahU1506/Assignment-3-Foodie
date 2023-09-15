@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:foodie/ShopPage.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 
@@ -30,7 +31,7 @@ class _OTPPageState extends State<otpScreen> {
           ),
           title: const Text(
             'OTP Verification',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.black, fontFamily: 'Inter'),
           ),
           backgroundColor: Colors.white),
       body: LayoutBuilder(
@@ -45,6 +46,7 @@ class _OTPPageState extends State<otpScreen> {
               const Text(
                 "We have sent a verification code to",
                 style: TextStyle(
+                  fontFamily: 'Inter',
                   fontSize: 18,
                   fontWeight: FontWeight.w400,
                 ),
@@ -54,7 +56,10 @@ class _OTPPageState extends State<otpScreen> {
               ),
               const Text(
                 "+91-XXXXXX5432",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600),
               ),
               Padding(
                 padding:
@@ -89,13 +94,15 @@ class _OTPPageState extends State<otpScreen> {
                 text: TextSpan(
                   text: "Didn't get the OTP? ",
                   style: const TextStyle(
-                      fontSize: 18,
+                      fontFamily: 'Inder',
+                      fontSize: 14,
                       fontWeight: FontWeight.w400,
                       color: Colors.black),
                   children: <TextSpan>[
                     TextSpan(
                         text: 'Resend SMS',
                         style: TextStyle(
+                            fontFamily: 'Inder',
                             fontWeight: FontWeight.w600,
                             color: Colors.blueGrey.shade400)),
                   ],
@@ -105,7 +112,12 @@ class _OTPPageState extends State<otpScreen> {
                 height: 30,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const shopPage()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xfff43127),
                   shape: RoundedRectangleBorder(
@@ -114,6 +126,7 @@ class _OTPPageState extends State<otpScreen> {
                 ),
                 child: const Text(
                   "VERIFY & ENTER",
+                  style: TextStyle(fontFamily: 'Inter'),
                 ),
               ),
             ],

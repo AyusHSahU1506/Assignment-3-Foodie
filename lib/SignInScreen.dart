@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/OtpScreen.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -29,7 +30,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               const Center(
                 child: Text(
@@ -53,7 +54,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   Positioned(
                       bottom: .01,
-                      left: 130,
+                      left: 125,
                       child: Container(
                           color: Colors.white,
                           child: Text(
@@ -67,67 +68,22 @@ class _SignInScreenState extends State<SignInScreen> {
                 ],
               ),
               const SizedBox(
-                height: 10,
+                height: 15,
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                child: Row(
-                  children: [
-                    Container(
-                      width: w * .15,
-                      height: h * .12,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 1,
-                          color: Colors.blueGrey,
-                        ),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(9.0),
-                        child: Image.asset("assets/icons/india.png"),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      width: w * .69,
-                      height: h * .12,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 1,
-                          color: Colors.blueGrey,
-                        ),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: Center(
-                        child: TextFormField(
-                          style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w500),
-                          keyboardType: TextInputType.phone,
-                          cursorColor: Colors.red,
-                          decoration: const InputDecoration(
-                              prefixText: "+91 ",
-                              prefixStyle: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18,
-                                  fontFamily: 'Inder'),
-                              border: InputBorder.none,
-                              hintText: 'Enter Phone Number',
-                              hintStyle: TextStyle(fontFamily: 'Inter')),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                  child: Form(
+                      child: IntlPhoneField(
+                    initialCountryCode: 'IN',
+                    decoration: InputDecoration(
+                        // focusedBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        hintText: "Enter Phone Number",
+                        hintStyle: TextStyle(fontFamily: 'Inter'),
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20)))),
+                  ))),
               SizedBox(
                 width: w * .87,
                 height: h * .11,
@@ -221,7 +177,46 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   )
                 ],
-              )
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              RichText(
+                text: const TextSpan(
+                  text: "            By continuing, you agree to our\n",
+                  style: TextStyle(
+                      fontFamily: 'Inder',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: 'Terms os Service ',
+                        style: TextStyle(
+                            fontFamily: 'Inder',
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xfff43127))),
+                    TextSpan(
+                        text: 'Privacy Policy',
+                        style: TextStyle(
+                            fontFamily: 'Inder',
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xfff43127))),
+                    TextSpan(
+                        text: ' & ',
+                        style: TextStyle(
+                          fontFamily: 'Inder',
+                          fontWeight: FontWeight.w400,
+                        )),
+                    TextSpan(
+                        text: 'Content Policy',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'Inder',
+                            color: Color(0xfff43127))),
+                  ],
+                ),
+              ),
             ],
           ),
         ));
