@@ -11,19 +11,17 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.width;
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-      backgroundColor: Colors.white,
-      body: LayoutBuilder(builder: (context, constraints) {
-        double w = constraints.maxWidth;
-        double h = constraints.maxHeight;
-
-        return SingleChildScrollView(
+        resizeToAvoidBottomInset: true,
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
                 width: w,
-                height: h * .52,
+                height: h * .9,
                 color: Colors.red,
                 child: Image.asset(
                   "assets/images/Hey_foodie.png",
@@ -35,8 +33,11 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
               const Center(
                 child: Text(
-                  "Order Delicious foods \n     to your doorstep",
-                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.w600),
+                  "Order Delicious Foods \n    To Your Doorstep",
+                  style: TextStyle(
+                      fontSize: 27,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Inter'),
                 ),
               ),
               const SizedBox(
@@ -52,7 +53,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   Positioned(
                       bottom: .01,
-                      left: 132,
+                      left: 130,
                       child: Container(
                           color: Colors.white,
                           child: Text(
@@ -60,7 +61,8 @@ class _SignInScreenState extends State<SignInScreen> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 17,
-                                color: Colors.blueGrey.shade800),
+                                color: Colors.blueGrey.shade900,
+                                fontFamily: 'Inder'),
                           )))
                 ],
               ),
@@ -74,7 +76,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   children: [
                     Container(
                       width: w * .15,
-                      height: h * .055,
+                      height: h * .12,
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1,
@@ -84,7 +86,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             const BorderRadius.all(Radius.circular(10)),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(11.0),
+                        padding: const EdgeInsets.all(9.0),
                         child: Image.asset("assets/icons/india.png"),
                       ),
                     ),
@@ -93,7 +95,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     Container(
                       width: w * .69,
-                      height: h * .06,
+                      height: h * .12,
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1,
@@ -102,8 +104,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10)),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Center(
                         child: TextFormField(
                           style: const TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w500),
@@ -112,9 +113,12 @@ class _SignInScreenState extends State<SignInScreen> {
                           decoration: const InputDecoration(
                               prefixText: "+91 ",
                               prefixStyle: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 18),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                  fontFamily: 'Inder'),
                               border: InputBorder.none,
-                              hintText: 'Enter Phone Number'),
+                              hintText: 'Enter Phone Number',
+                              hintStyle: TextStyle(fontFamily: 'Inter')),
                         ),
                       ),
                     ),
@@ -126,7 +130,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
               SizedBox(
                 width: w * .87,
-                height: 40,
+                height: h * .11,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
@@ -141,8 +145,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     },
                     child: const Text(
                       "Continue",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Inter'),
                     )),
               ),
               const SizedBox(
@@ -166,7 +172,8 @@ class _SignInScreenState extends State<SignInScreen> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 17,
-                                color: Colors.blueGrey.shade800),
+                                color: Colors.blueGrey.shade800,
+                                fontFamily: 'Inder'),
                           ))),
                 ],
               ),
@@ -217,8 +224,6 @@ class _SignInScreenState extends State<SignInScreen> {
               )
             ],
           ),
-        );
-      }),
-    );
+        ));
   }
 }

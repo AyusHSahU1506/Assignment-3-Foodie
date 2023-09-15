@@ -24,10 +24,22 @@ flutter:
    - assets/icons/
    - assets/images/
   
-  # fonts:
-  # - family: Inter
-  #   fonts:
-  #     - asset: assets/fonts/Inter-VariableFont_slnt,wght.ttf
-  # - family: Inder
-  #   fonts:
-  #     - asset: assets/fonts/Inder-Regular.ttf
+  fonts:
+  - family: Inter
+    fonts:
+      - asset: fonts/Inter-VariableFont_slnt,wght.ttf
+  - family: Inder
+    fonts:
+      - asset: fonts/Inder-Regular.ttf
+  - family: BauhausBold
+    fonts:
+      - asset: fonts/BauhausBold.ttf
+  - family: BauhausBoldItalic
+    fonts:
+      - asset: fonts/BauhausBoldItalic.ttf
+  - family: BauhausItalic
+    fonts:
+      - asset: fonts/BauhausItalic.ttf
+  - family: BauhausRegular
+    fonts:
+      - asset: fonts/BauhausRegular.ttf
